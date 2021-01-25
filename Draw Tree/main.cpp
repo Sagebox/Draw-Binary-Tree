@@ -79,10 +79,8 @@ void DrawNode(CWindow & cWin,CfPoint pPos,stNode_t * stNode)
     if (!stNode) return; 
     static int iDepth = 0;
 
-    int iAddDist = (int) pow(2,(double) (iMaxDepth-iDepth))*iDist/2;
+    int iAddDist = (int) pow(2,(double) (iMaxDepth-iDepth++))*iDist/2;
  
-    iDepth++;
-
     CfPoint pLeft =  pPos + CPoint{-iAddDist, iHeight };
     CfPoint pRight = pPos + CPoint{ iAddDist, iHeight };
  
@@ -92,7 +90,7 @@ void DrawNode(CWindow & cWin,CfPoint pPos,stNode_t * stNode)
     if (iDepth < iMaxDepth) DrawNode(cWin,pLeft,stNode->pLeft);
     if (iDepth < iMaxDepth) DrawNode(cWin,pRight,stNode->pRight);
     
-    // Draw these later so they the drawn lines don't overlap.
+    // Draw these later so the drawn lines don't overlap.
     
     if (stNode->pLeft)  cWin.DrawCircle(pLeft,iRadius,rgbCircleColor);
     if (stNode->pRight) cWin.DrawCircle(pRight,iRadius,rgbCircleColor);
@@ -106,7 +104,7 @@ void DrawNode(CWindow & cWin,CfPoint pPos,stNode_t * stNode)
 //
 void DrawTree(CWindow & cWin,int iDepth,stNode_t * stNode)
 {
-    // Get center if window, 10 pixels down 
+    // Get center of window, 10 pixels down 
 
     CfPoint pPos = CPoint{ cWin.GetWindowSize().cx/2, iRadius + 65 };
 
@@ -127,7 +125,7 @@ int main()
     // bgGradient() -- Sets the background gradient and clears the window to this gradient
     // Title()      -- Sets the window title in the title bar
     //
-    auto& cWin = CSagebox::AutoWindow(CSize(700,320),bgGradient("black","SkyBlueDark") | Title("Binary Tree Eample")); 
+    auto& cWin = CSagebox::AutoWindow(CSize(700,320),bgGradient("black","SkyBlueDark") | Title("Binary Tree Example")); 
 
     // Add 12 pieces of data
 
