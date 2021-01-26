@@ -76,8 +76,8 @@ void PrintText(CWindow & cWin,stNode_t * stNode,CfPoint & pLoc)
 //
 void DrawNode(CWindow & cWin,CfPoint pPos,stNode_t * stNode)
 {
-    if (!stNode) return; 
     static int iDepth = 0;
+    if (!stNode || iDepth == iMaxDepth-1) return; 
 
     int iAddDist = (int) pow(2,(double) (iMaxDepth-iDepth++))*iDist/2;
  
