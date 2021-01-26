@@ -64,7 +64,7 @@ void PrintText(CWindow & cWin,stNode_t * stNode,CfPoint & pLoc)
 
 // DrawNode() -- Main Tree-Drawing Function
 //
-// Some of this is not need to get the idea of the algorithm. 
+// Some of this is not needed to understand the idea of the algorithm. 
 // The text does not need to be drawn.
 //
 // The circles are at the end points and don't specifically need to be drawn. 
